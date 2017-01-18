@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (error == null) return;
 
-                        ErrorUtils.handleError(MainActivity.this, error);
+                        ErrorUtils.handleError(MainActivity.this, error, presenter);
                     }
                 });
             }
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (error == null) return;
 
-                    ErrorUtils.handleError(MainActivity.this, error);
+                    ErrorUtils.handleError(MainActivity.this, error, presenter);
                 }
             });
         }
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onFailureResponse(Object error) {
                     if (error == null) return;
 
-                    ErrorUtils.handleError(MainActivity.this, error);
+                    ErrorUtils.handleError(MainActivity.this, error, presenter);
                 }
             });
         }

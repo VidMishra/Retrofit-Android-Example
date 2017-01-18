@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.todo.vidyanandmishra.retofitexample.models.ErrorResponseModel;
+import com.todo.vidyanandmishra.retofitexample.network.Presenter;
 
 import java.io.IOException;
 
@@ -20,12 +21,12 @@ public class ErrorUtils {
      * @param context
      * @param errObj
      */
-    public static void handleError(Context context, Object errObj) {
+    public static void handleError(Context context, Object errObj, Presenter presenter) {
 
         if (errObj instanceof ErrorResponseModel) {
             ErrorResponseModel errModel = (ErrorResponseModel) errObj;
             if (errModel != null) {
-                errHandleDialog(context, errModel);
+                errHandleDialog(context, errModel, presenter);
             }
         } else {
             Throwable throwable = (Throwable) errObj;
@@ -42,7 +43,7 @@ public class ErrorUtils {
      * @param context
      * @param errorResponseModel
      */
-    public static void errHandleDialog(final Context context, final ErrorResponseModel errorResponseModel) {
+    public static void errHandleDialog(final Context context, final ErrorResponseModel errorResponseModel, final Presenter presenter) {
 
         final AlertDialog alert = new AlertDialog.Builder(context)
                 .setTitle("Alert")

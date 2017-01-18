@@ -149,7 +149,7 @@ public class Presenter {
                         ErrorResponseModel errModel = new Gson().fromJson(jObjError.toString(), ErrorResponseModel.class);
 
                         if (errModel != null) {
-                            ErrorUtils.handleError(mContext, errModel);
+                            ErrorUtils.handleError(mContext, errModel, null);
                         }
 
                     } catch (Exception e) {
